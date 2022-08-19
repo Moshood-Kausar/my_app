@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,17 +13,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.yellow,
       appBar: AppBar(
-          title: const Text('OUI BOOTCAMP'),
-          elevation: 0,
-          leading: const Icon(Icons.person)),
+        title: const Text('OUI BOOTCAMP'),
+        elevation: 0,
+        leading: const Icon(
+          Icons.person,
+        ),
+      ),
       endDrawer: Drawer(
-        //backgroundColor: Colors.yellow,
         child: ListView(
           children: const [
             DrawerHeader(
               decoration: BoxDecoration(color: Colors.black),
-              child: Text('Student Profile',
-                  style: TextStyle(color: Colors.white)),
+              child: Text(
+                'Student Profile',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
             ListTile(
               title: Text(
@@ -51,16 +53,16 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: const Icon(Icons.phone),
         backgroundColor: Colors.orange,
         foregroundColor: Colors.blue,
+        child: const Icon(Icons.phone),
       ),
       body: Center(
         child: Container(
           height: 200,
           width: 200,
           color: Colors.pink,
-          child: Center(
+          child: const Center(
             child: Text(
               'Flutter Bootcamp',
               style: TextStyle(color: Colors.white),
@@ -68,25 +70,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(currentIndex: 0, items: const [
-        BottomNavigationBarItem(
-          backgroundColor: Colors.purple,
-          icon: Icon(Icons.home),
-          label: 'HomePage'
-        ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile'
-        ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.phone),
-          label: 'Contact'
-        ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.phone),
-          label: 'Contact'
-        ),
-      ],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: const [
+          BottomNavigationBarItem(
+            backgroundColor: Colors.purple,
+            icon: Icon(Icons.home),
+            label: 'HomePage',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.phone), label: 'Contact'),
+          BottomNavigationBarItem(icon: Icon(Icons.phone), label: 'Contact'),
+        ],
       ),
     );
   }
