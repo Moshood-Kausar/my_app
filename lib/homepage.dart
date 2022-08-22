@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:sn_progress_dialog/sn_progress_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,6 +18,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ProgressDialog pd = ProgressDialog(context: context);
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -215,6 +219,56 @@ class _HomePageState extends State<HomePage> {
                     Text('THis is one'),
                     Text('THis is one'),
                   ],
+                ),
+                const SizedBox(height: 12),
+                InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('This is a snackbar'),
+                        backgroundColor: Colors.green,
+                        action: SnackBarAction(
+                          label: 'Close',
+                          onPressed: () {},
+                          textColor: Colors.black,
+                        ),
+                        duration: const Duration(seconds: 5),
+                        elevation: 19.0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18)),
+                      ),
+                    );
+                  },
+                  child: const Text('Show snackbar',
+                      style: TextStyle(color: Colors.green, fontSize: 24)),
+                ),
+                const SizedBox(height: 12),
+                Text('This is Samuel inside somewhere',
+                    style: GoogleFonts.rubikBubbles(fontSize: 26)),
+                const SizedBox(height: 12),
+                TextButton(
+                  onPressed: () {
+                    pd.show(
+                      max: 5,
+                      msg: 'This is a test',
+                      barrierDismissible: true,
+                    );
+                  },
+                  child: const Text('Show Progress Indicator'),
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: 200.0,
+                  height: 100.0,
+                  child: Shimmer.fromColors(
+                    baseColor: Colors.white30,
+                    highlightColor: Colors.grey[500]!,
+                    child: Container(
+                      width: 200.0,
+                      height: 100.0,
+                      decoration: const BoxDecoration(color: Colors.grey),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 82),
               ],
